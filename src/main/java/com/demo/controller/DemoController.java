@@ -14,7 +14,7 @@ public class DemoController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("/hello123")
+    @RequestMapping("/hello123123")
     public String hello(){
         return "Hello World";
     }
