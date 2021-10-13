@@ -1,0 +1,581 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0031)http://127.0.0.1:5500/CSS.html# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS学习总结</title>
+  <link rel="stylesheet" href="./CSS_files/style.css">
+  <style>
+    body {
+      background-color: #fffff3;
+      background-image: url(83883660_p15.png);
+      background-position:center;
+      background-attachment: fixed;
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+.dropbtn {
+  background-color: #c43c3c;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 170px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  font-size: 15px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #d15c5c;
+}
+  
+  </style>  
+</head>
+
+<body class="stackedit">
+<div class="stackedit__html" style="background-image: url(BG.png);">
+  <div class="dropdown" style="position:fixed;top: 20px;right: 20px;">
+    <button class="dropbtn" style="border-radius: 5px;">文章目录</button>
+    <div class="dropdown-content"style="right: 0px;">
+    <a href="#C10">1.0 首页</a>
+    <a href="#C11">1.1 语法</a>
+    <a href="#C12">1.2 生效方式</a>
+    <a href="#C13">1.3 颜色尺寸与对于</a>
+    <a href="#C14">1.4 盒子模型</a>
+    <a href="#C15">1.5 元素位置</a>
+    <a href="#C16">1.6 不透明度</a>
+    <a href="#C17">1.7 伪元素和类元素</a>
+    <a href="#C18">1.8 错题梳理</a>
+    <a href="#C19">1.9 进阶指南</a>
+    </div>
+  </div>
+  <h1 id="C10"style="top: 0%;margin-top: 0px;margin-bottom: 0px;padding-top: 30px;padding-bottom: 10px;">
+    <a id="font_color566270CSSfont_0"></a>
+    <font color="#566270">CSS入门学习总结</font><font size="4">（文章目录在窗口最👉）</font>
+  </h1>
+
+  <h2><a id="font_color5662700_CSSfont_2"></a><font color="#566270">0. 何为CSS</font></h2>
+<p><font color="#A593E0" size="4"><strong>CSS</strong></font> <font color="566270">是级联样式表（Cascading Style Sheets）的缩写。因为网页内容由<strong>HTML</strong>元素构成，但这些元素的位置、距离、大小、颜色、是否显示、透明度等多种外观样式都由CSS负责美化。</font></p>
+<p style="border-left: 5px solid #566270;background-color:#E0E3DA; border-radius: 5px;padding-top:10px;padding-left:15px;padding-bottom:10px;padding-right:15px"><b>小贴士</b>：在Internet早期阶段，CSS还未被大量采用前，页面的内容和样式都由HTML来负责，当<b> 万维网联盟 W3C </b>意识到这个问题后于1997年推出了CSS 1.0，从此正式推动了网页内容（HTML）和表现（CSS）的分离。</p>
+<p>经典入门简单上限高。</p>
+<h2><a id="font_color5662701_CSSfont_12"></a><font color="#566270">1. CSS基本技巧</font></h2>
+<h3 id="C11"><a id="font_color56627011_font_14"></a><font color="#566270">1.1 语法</font></h3>
+<p>一条 <strong>CSS</strong> 样式规则由两个主要的部分构成：选择器，以<code>{}</code>包裹的一条或多条声明。</p>
+<pre><code class="prism language-css"><span class="token selector">h1</span><span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span>blue<span class="token punctuation">;</span>            <span class="token comment">/*颜色：蓝色*/</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span>12px<span class="token punctuation">;</span>		   <span class="token comment">/*字体大小：12px*/</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>	   <span class="token comment">/*文本样式：居中*/</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>代码剖析：</p>
+<ul>
+<li>选择器：<code>h1</code>，大括号内包裹的所有声明将作用于页面内的所有<code>&lt;h1&gt;</code>元素</li>
+<li><code>color</code>，<code>font-size</code> 等是声明中的 <strong>属性</strong></li>
+<li><code>blue</code>，<code>12px</code> 声明了 <strong>属性的值</strong> ，用<code>:</code>分开属性与它的值。</li>
+</ul>
+<h4><a id="font_colorA593E0_size4font_34"></a><font color="#A593E0" size="4">选择器：</font></h4>
+<p>选择器用于定位页面中众多元素的目标对象，除了元素选择器外还有 <code>id</code>和<code>class</code> 选择器，他们的定位更加精准，其中class选择器使用非常普遍。</p>
+<ol>
+<li><strong>id 选择器</strong>（元素的id值唯一）</li>
+</ol>
+<pre><code class="prism language-css"><span class="token comment">/* 注意：id选择器前有 # 号*/</span>
+<span class="token selector">#sky</span><span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> A593E0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>以上规则表明，这条样式将找到页面内 <code>id</code> 为 <code>sky</code> 的元素让它的内容变成蓝色。</p>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sky<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>紫紫的天空~<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>water<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>青青的湖水~可我的id没有被选择<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>效果如下：</p>
+<p><font color="A593E0">紫紫的天空</font></p>
+<p>青青的湖水~可我的id没有被选择</p>
+<ol start="2">
+<li><strong>class选择器</strong> （不唯一）</li>
+</ol>
+<p>与 <code>id选择器</code> 不同的是，<code>id</code>是去选元素，一个元素只能用一种 <code>id</code> 中的内容，而 <strong>class</strong> 更像是被元素挑选，所以一个元素可以包含多个 <strong>class</strong>。</p>
+<pre><code class="prism language-css"><span class="token comment">/* 注意：class选择器前有 . 号。 */</span>
+<span class="token selector">.center</span><span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.large</span><span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.red</span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>我会居中显示的<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>我是红色的<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>center large red<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>我又红又大还居中<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>我也可以是红的<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>综上我们发现，<strong>class</strong> 在某种程度上可以极大程度上简化代码，使其更容易被读懂、分享，再加上可以被元素包含多个所以应用非常普遍。</p>
+<h4><a id="font_colorA593E0_size4font_90"></a><font color="#A593E0" size="4">组合选择器：</font></h4>
+<p>三种选择器之间可以进行组合，由此得到简洁精确的选择。首先学习两种最基本的组合选择器：</p>
+<ol>
+<li>
+<p><strong>后代选择器（👴的后代都必须按照爷的要求走）：</strong></p>
+<p>写作格式：以空格为分隔符，如：<code>.haha p</code> 表示在选择了 <code>.haha</code> 元素内所有<code>&lt;p&gt;&lt;/p&gt;</code>元素内容都遵循 <code>.haha</code> 的样式走；参考代码如下：</p>
+<pre><code class="prism language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+    <span class="token selector">.haha p</span> <span class="token punctuation">{</span>
+      <span class="token property">background-color</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>haha<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>我是第一段，我在选择了haha样式的div内部<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>我是第二段，我在选择了haha样式的div内部<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>我是第三段，我也在选择了haha样式的div内部，同时我也在span内部<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>我是第四段，我和这些儿子孙子不同，我是独立的<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>显示效果如下：<br>
+<img src="https://raw.githubusercontent.com/Wattson1128/CSSNotes/main/CSS_files/20210322081644374.png" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p><strong>子选择器（👶宝宝只认上一代，隔了一代就六亲不认）：</strong></p>
+<p>也称作<strong>直接后代选择器</strong>。写作格式：以 <code>&gt;</code> 为分隔符，如：<code>.haha&gt;p</code> 表示在选择了 <code>.haha</code> 元素内所有以其为直接父代的<code>&lt;p&gt;&lt;/p&gt;</code>元素内容都遵循 <code>.haha</code> 的样式走；参考代码如下：</p>
+<pre><code class="prism language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+    <span class="token selector">.haha&gt;p</span> <span class="token punctuation">{</span>
+      <span class="token property">background-color</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>haha<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>我是第一段，我在选择了haha样式的div内部<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>我是第二段，我在选择了haha样式的div内部<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>我是第三段，我在div内，同时我也在span内，但是span是我的直接父类，div不是<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>我是第四段，我和这些儿子孙子不同，我是独立的<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>显示效果如下：</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Wattson1128/CSSNotes/main/CSS_files/2021032208173280.png" alt="在这里插入图片描述"></p>
+<p>​		如图所示，子选择器只认自己的<strong>第一代子孙</strong>，后面的🐒猴子猴孙都得不到它的照顾。</p>
+<hr>
+<h3 id="C12"><a id="font_color56627012_font_150"></a><font color="#566270">1.2 三种生效方式</font></h3>
+<p>让定义完成的 <strong>css样式</strong> 生效一般有三种方法：外部样式表，内部样式表，内联样式表。</p>
+<p><font color="#A593E0" size="4"><strong>外部样式表：</strong></font></p>
+<p>外部样式表实目前使用样式的主流方式，其中，<strong>CSS</strong> 内容被分离HTML文件，被定义在与HTML文档同目录下的  <code>.css</code>  文件中，结构清晰的同时还能被其他页面重复使用。</p>
+<p>一般情况下会在html文档同一目录下建立专门存放CSS样式表的文件，如此我们引入样式文件时路径就变为 <code>./css/mycss.css</code> 之类的。</p>
+<p><em>引入方法：</em></p>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- 注意下面这个语句，将导入外部的 mycss.css 样式表文件 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mycss.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>页面标题<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!--注意必须在head里面引用--&gt;</span>
+</code></pre>
+<p><font color="#A593E0" size="4"><strong>内部样式表：</strong></font></p>
+<p>使用 <code>&lt;style&gt;&lt;/style&gt;</code> 元素将CSS内容包裹在一起储存在HTML文档中，但一般而言，只有当页面内样式较少时才会采用这种方式。</p>
+<p><font color="#A593E0" size="4"><strong>内联样式：</strong></font></p>
+<p>直接把样式属性写到要应用的元素中，如：</p>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">color</span><span class="token punctuation">:</span>#566270<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">&gt;</span></span>I am a fool<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p><b>I am a fool.</b></p><p>这是一种极不灵活的方式，实际应用中非常少见。</p>
+<p style="border-left: 5px solid #566270;background-color:#E0E3DA; border-radius: 5px;padding-top:10px;padding-left:15px;padding-bottom:10px;padding-right:15px"><b>但是：</b>博主认为，因为Markdown目前能<b>直接支持</b>很多HTML元素，但不能直接支持CSS外部样式表；而在单独书写.md文件时恰好可以通过内联样式来做到让笔记美观的同时又能隐藏样式表代码还提高了代码可读性，由此可见内联样式表在markdown中还是有用武之地的。（比如现在这个盒子就是通过内联样式书写的）</p>
+<p><font color="#A593E0" size="4"><strong>级联的优先级：</strong></font></p>
+<p>当一种元素同时使用了三种样式来指定一种属性的三种不同的值，这个时候会根据优先级取值：</p>
+<ol>
+<li>内联样式</li>
+<li>内部样式表</li>
+<li>外部样式表</li>
+<li>游览器缺省样式</li>
+</ol>
+<p><mark>总之就是，谁最近谁生效。</mark></p>
+<hr>
+<h3 id="C13"><a id="font_color56627013_font_203"></a><font color="#566270">1.3 颜色+尺寸+对齐</font></h3>
+<p><font color="#A593E0" size="4"><strong>颜色：</strong></font></p>
+<p><font color="#566270">颜色的重要性不言而喻，懂得都懂，css中采用颜色名称和RGB16进制值来设定前景和背景颜色。</font></p>
+<p style="background-color:#A593E0;text-align: center;border-radius: 5px;"><b>#A593E0</b></p>
+<p style="background-color:#E0E3DA;text-align: center;border-radius: 5px;"><b>#E0E3DA</b></p>
+<p style="background-color:#FFFFF3;text-align: center;border-radius: 5px;"><b>#FFFFF3</b></p>
+<p style="background-color:#566270;text-align: center;border-radius: 5px;"><b>#566270</b></p>
+<p><font color="#566270">在没有美学基础的情况下，选用一种耐看、易用、符合心意的配色是很艰难的，但这里有两个地方为我们提供了不少合适的方案：去</font><a href="https://colordrop.io/">ColorDrop</a>或者<a href="https://www.webdesignrankings.com/resources/lolcolors/">LOLcorlors</a>挑选自己喜欢的配色吧。本篇笔记通过后者寻找的主题配色如上。</p>
+<p><font color="#A593E0" size="4"><strong>尺寸与对齐：</strong></font></p>
+<p><code>height</code>和 <code>width</code> 分别规定了元素内容占据的高和宽。而常见的尺寸单位有像素 <code>px</code> 和百分比 <code>%</code> 等。</p>
+<p>而对于元素中的文本，除了可以用px设置字体大小，还可以使用 <code>&lt;text-align&gt;</code> 文本对齐元素，它的属性有，<code>left, center, right</code>，如果元素缺省则是左对齐。</p>
+<hr>
+<h3 id="C14"><a id="font_color56627014_font_226"></a><font color="#566270">1.4 盒子模型</font></h3>
+<p>盒子模型是指一个HTML 元素可以看作一个如图所示的盒子：从内到外这个盒子是由<strong>内容 content, 内边距 padding, 边框 border, 外边距 margin</strong>构成的。</p>
+<table><tbody><tr><td align="center" bgcolor="A593E0"><b>Margin</b><table><tbody><tr><td align="center" bgcolor="E0E3DA"><b>Border</b><table><tbody><tr><td align="center" bgcolor="FFFFF3"><b>Padding</b><table><tbody><tr><td align="center" bgcolor="566270"><b><font color="#FFFFF3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></b></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>
+<p><strong>说明：</strong></p>
+<ul>
+<li>Content 盒子的内容，如文本、图片等</li>
+<li>Padding 填充，也叫内边距，即内容和边框之间的区域</li>
+<li>Border 边框，默认不显示</li>
+<li>Margin 外边距，边框以外与其它元素的区域</li>
+<li>它们在样式表中都有四个方向可单独定义</li>
+</ul>
+<p><font color="A593E0" size="4"><b>边框 Border：</b></font></p>
+<p>Border是盒子模型的第二层，在css中用 <code>border</code> 表示 ，下表是支持的常见属性和作用：</p>
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>border（同名属性）</td>
+<td>上下左右全局边框，可设置边框样式和颜色</td>
+</tr>
+<tr>
+<td>-top,-bottom,-left,-right</td>
+<td>分别用来设置上、下、左、右单一属性的值</td>
+</tr>
+<tr>
+<td>radius</td>
+<td>使边框变为圆角</td>
+</tr>
+</tbody>
+</table><p><font color="A593E0" size="4"><b>边距 Padding：</b></font></p>
+<p><strong>Padding</strong> 是盒子模型的第三层，它分离了<u>内容Conten</u>t和<u>边框Border</u>，使内容得到样式的同时也更加清晰，而 <strong>Padding</strong> 的常用的前两个属性和 Border 相同，此外它们都有简写的方法：</p>
+<p><strong>padding</strong>:  <font color="A593E0">25px 50px 75px 100px</font>; 代表上，右，下，左**（顺时针）**四条边距的宽度</p>
+<p><strong>border</strong>:  <font color="A593E0">25px 50px</font>;  分别代表上下，左右的边框宽度</p>
+<p style="border-left: 5px solid #566270;background-color:#E0E3DA; border-radius: 5px;padding-top:10px;padding-left:15px;padding-bottom:10px;padding-right:15px"><b>注意：</b>要想查看一个页面的盒子模型元素布局，右键它选择审查元素即可：然后你会发现一个元素真正占据的宽度应该是左外边距 + 左边框宽度 + 左内边距 + 内容宽度 + 右内边距 + 右边框宽度 + 右外边距。因此，我们在用width属性设置元素的宽度时，实际上只设置了其内容的宽度。</p>
+<hr>
+<h3 id="C15"><a id="font_color55627015_font_266"></a><font color="556270">1.5 元素位置</font></h3>
+<p><font color="A593E0" size="4"><strong>定位：</strong></font></p>
+<p>元素还有一个重要的属性，那就是它们的位置 <code>position</code> ，该属性对元素进行定位后我们才能使用 <code>top</code> , <code>bottom</code> , <code>left</code> , <code>right</code> ，该元素有以下值：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">元素名</th>
+<th align="left">定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>static</strong></td>
+<td align="left"><font color="566270"><strong>默认属性：</strong></font>没有特别声明position或者声明position:static效果都一样——即按照元素在HTML出现的先后顺序从上到下从左到右进行元素位置的安排。</td>
+</tr>
+<tr>
+<td align="center"><strong>fixed</strong></td>
+<td align="left"><font color="566270"><strong>固定：</strong></font>相对于用户的视窗固定住元素的位置，比如它可以让一个元素永远待在你看到的页面的右下角。</td>
+</tr>
+<tr>
+<td align="center"><strong>relative</strong></td>
+<td align="left"><font color="566270"><strong>相对：</strong></font>相对于此元素的静态（static）位置用 <code>top</code> ，<code>left</code> 等元素进行偏移</td>
+</tr>
+<tr>
+<td align="center"><strong>absolute</strong></td>
+<td align="left"><font color="566270"><strong>绝对：</strong></font>将使元素相对于其<strong>最近设置了定位属性（非static）的父元素</strong>进行偏移。如果该元素的所有父元素都没有设置定位属性，那么就相对于**<code>&lt;body&gt;</code>**这个父元素。</td>
+</tr>
+</tbody>
+</table><p><font color="A593E0" size="4"><strong>内容溢出：</strong></font></p>
+<p>当元素内容超过其指定的区域时，我们通过 <strong>溢出</strong> <code>overflow</code> 属性来处理这些溢出的部分。<br>
+溢出属性有一下几个值：</p>
+<ul>
+<li>visible 默认值，溢出部分不被裁剪，在区域外面显示</li>
+<li>hidden 裁剪溢出部分且不可见</li>
+<li>scroll 裁剪溢出部分，但提供上下和左右滚动条供显示</li>
+<li>auto 裁剪溢出部分，视情况提供滚动条</li>
+</ul>
+<p><font color="A593E0" size="4"><strong>浮动：</strong></font></p>
+<p>图文并茂是一直是优质文章的看点之一，但如何让文字与图片进行自动排列呢？这里就要用到 <code>float</code> 属性让某元素进行水平移动（直到它的外边缘碰到包含框或另一个浮动框的边框为止），同时它周围的元素也会重新进行排列。比如当我们想要达到下图中的效果时：</p>
+<p><img src="https://raw.githubusercontent.com/Wattson1128/CSSNotes/main/CSS_files/1f59a4ee0139681e07bb5d27084cf5e6.png" alt="浮动图例一"></p>
+<p>它的源代码如下：</p>
+<pre><code class="prism language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>图片地址<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">float</span><span class="token punctuation">:</span>right</span><span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>图片名<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>文字部分<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p style="border-left: 5px solid #566270;background-color:#E0E3DA; border-radius: 5px;padding-top:10px;padding-left:15px;padding-bottom:10px;padding-right:15px"><b>注意：</b>一个元素浮动后，其后的元素将尽可能包围它，或者说出现在这个浮动元素的左或右方。
+    如果希望浮动元素后面的元素在其下方显示，可使用<kbd>clear: both</kbd>样式来进行清除。</p>
+***
+<h3 id="C16"><a id="font_color55627016_font_313"></a><font color="556270">1.6 不透明度：</font></h3>
+<p>我们可以用<code>opacity</code>对任何元素（不过常用于图片）设置不透明度：值在**[0.0~1.0]**之间。效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/Wattson1128/CSSNotes/main/CSS_files/d672ff5a1df9b8a1513f8ccdcf6a5842.png" alt="qige的图片"></p>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">opacity</span><span class="token punctuation">:</span>0.2<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www.xxx.com<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>XXX<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--大概就是这么用的--&gt;</span>
+</code></pre>
+<p>emmm，我知道把它单独拿出来作为一节内容比较少，但随着学习的深入，后面还会在此节补充一些其他类似的样式内容。</p>
+<hr>
+<h3 id="C17"><a id="font_color55627017_font_327"></a><font color="556270">1.7 伪类和伪元素：</font></h3>
+<p>伪类**（pseudo-class）<strong>或伪元素</strong>（pseudo-element）**用于<font color="A593E0"><strong>自定义</strong></font>元素的某种<font color="A593E0"><strong>特定的状态或位置等</strong></font>。比如当我们想要进行以下比较复杂的操作时就可以用到preudo：</p>
+<ul>
+<li>
+<p>鼠标移到某元素上变换背景颜色</p>
+</li>
+<li>
+<p>自定义超链接访问前后访问后样式</p>
+</li>
+<li>
+<p>给段落第一个字的字号超级加倍</p>
+</li>
+</ul>
+<p>这样说起来可能还不太懂，请后面表中的例子进行理解。</p>
+<p><font color="A593E0" size="4"><strong>语法：</strong></font></p>
+<p>伪类/元素语法较为特殊，选择器开头接冒号，再跟上某个伪类/元素</p>
+<pre><code class="prism language-css"><span class="token selector">selector:pseudo-class/pseudo-element</span> <span class="token punctuation">{</span>
+  property<span class="token comment">/*属性*/</span><span class="token punctuation">:</span>value<span class="token punctuation">;</span><span class="token comment">/*值*/</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><font color="a593e0" size="4"><strong>常用实例表：</strong></font></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">伪类/伪元素</th>
+<th align="center">作     用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">a:link {color:blue;}</td>
+<td align="center">未访问的链接是蓝色</td>
+</tr>
+<tr>
+<td align="center">reda:visited {color:red;}</td>
+<td align="center">已访问的链接是红色</td>
+</tr>
+<tr>
+<td align="center">a:hover {color:gery;}</td>
+<td align="center">鼠标划过链接是灰色</td>
+</tr>
+<tr>
+<td align="center">p:hover {background-color: red;}</td>
+<td align="center">鼠标移到段落则改变背景颜色为红色</td>
+</tr>
+<tr>
+<td align="center">p:first-line{color:blue;}</td>
+<td align="center">段落的第一行显示蓝色</td>
+</tr>
+<tr>
+<td align="center">p:first-letter{font-size: xx-large;}</td>
+<td align="center">段落的第一个字超大</td>
+</tr>
+<tr>
+<td align="center">h1:before/after { content:url(smiley.gif); }</td>
+<td align="center">在每个一级标题前后插入该图片</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="C18"><a id="font_color55627018_font_365"></a><font color="556270">1.8 错题梳理总结：</font></h3>
+<ol>
+<li>
+<p><strong>在 CSS 中导入样式表的正确语法是：@import url(css/example.css);</strong></p>
+</li>
+<li>
+<p>如何显示没有下划线的超链接：<strong>a {text-decoration:none}</strong></p>
+</li>
+<li>
+<p>边框自定义顺序是**<font color="a593e0">顺时针</font>**排列的</p>
+</li>
+<li>
+<p>盒子模型中的内容不能给予负值</p>
+</li>
+<li>
+<p>如何产生带有正方形标记的项目列表：<strong>list-style-type: square;</strong></p>
+</li>
+<li>
+<p>如何给 CSS3 中的元素添加阴影：<strong>box-shadow: 10px;</strong></p>
+</li>
+<li>
+<p>如何使用 CSS3 调整背景图像的大小：<strong>background-size: 80px 60px;</strong></p>
+</li>
+<li>
+<p>如何使用 CSS3 添加文本阴影：<strong>text-shadow: 5px 5px 5px grey;</strong></p>
+</li>
+<li>
+<p>有效的 CSS3 转换语句：<strong>matrix()</strong></p>
+</li>
+<li>
+<p>box-shadow 支持所有浏览器</p>
+</li>
+<li>
+<p>border-radius 设置为 0 会发生什么？<strong>什么™de都不会发生</strong>🤡🤡🤡🤡🤡</p>
+</li>
+<li>
+<p>要使 CSS3属性在较老的 Mozilla Firefox 浏览器上工作，需要-moz-前缀</p>
+</li>
+<li>
+<p>font-size 值可以是绝对大小，也可以是相对大小</p>
+</li>
+<li>
+<p>用于更改背景颜色：<strong>background-color:</strong></p>
+</li>
+<li>
+<p>通常用于水平居中：<strong>argin: 0 auto;</strong></p>
+</li>
+</ol>
+<p><font color="A593e0" size="4"><strong>总结：</strong></font></p>
+<p>知道你哪最不行了吗？代码写少了好多元素名都不熟悉，<strong>八嘎！</strong></p>
+<hr>
+<h3 id="C19"><a id="font_color55627019_font_394"></a><font color="556270">1.9 进阶指南：</font></h3>
+<p>开头就说过CSS入门容易但掌握十分困难，这里是两本免费但质量十分优秀的书籍供你走完剩下的道路：<a href="https://gdut_yy.gitee.io/doc-csstdg4/"><strong>CSS权威指南</strong></a>  和  <a href="http://file.allitebooks.com/20180423/CSS%20in%20Depth.pdf"><strong>CSS In Depth</strong></a> （你要是发现点了进不去很正常，因为它们不在国内）</p>
+<p>我让内部样式表生效。</p>
+<h3><a id="font_colorA593E0pagesGitHubcom_fontpagesGitHubcom_422"></a><a href="file:///C:/Users/12711/Desktop/%E7%A0%81%E7%A5%9E%E7%9A%84%E4%BD%9C%E4%B8%9AVS%E7%89%88/web%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%BD%91%E9%A1%B5%E5%8C%96/pages.GitHub.com"><font color="A593E0">去pages.GitHub.com 托管你的静态网页。</font></a></h3>
+</div>
+
+<!--这里是动态光标特效-->
+<script>
+ 
+  !function(){
+   
+  function n(n,e,t){
+   
+  return n.getAttribute(e)||t
+   
+  }
+   
+  function e(n){
+   
+  return document.getElementsByTagName(n)
+   
+  }
+   
+  function t(){
+   
+  var t=e("script"),o=t.length,i=t[o-1];
+   
+  return{
+   
+  l:o,z:n(i,"zIndex",-1),o:n(i,"opacity",.5),c:n(i,"color","0,0,0"),n:n(i,"count",99)
+   
+  }
+   
+  }
+   
+  function o(){
+   
+  a=m.width=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,
+   
+  c=m.height=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight
+   
+  }
+   
+  function i(){
+   
+  r.clearRect(0,0,a,c);
+   
+  var n,e,t,o,m,l;
+   
+  s.forEach(function(i,x){
+   
+  for(i.x+=i.xa,i.y+=i.ya,i.xa*=i.x>a||i.x<0?-1:1,i.ya*=i.y>c||i.y<0?-1:1,r.fillRect(i.x-.5,i.y-.5,1,1),e=x+1;e<u.length;e++)n=u[e],
+   
+  null!==n.x&&null!==n.y&&(o=i.x-n.x,m=i.y-n.y,
+   
+  l=o*o+m*m,l<n.max&&(n===y&&l>=n.max/2&&(i.x-=.03*o,i.y-=.03*m),
+   
+  t=(n.max-l)/n.max,r.beginPath(),r.lineWidth=t/2,r.strokeStyle="rgba("+d.c+","+(t+.2)+")",r.moveTo(i.x,i.y),r.lineTo(n.x,n.y),r.stroke()))
+   
+  }),
+   
+  x(i)
+   
+  }
+   
+  var a,c,u,m=document.createElement("canvas"),
+   
+  d=t(),l="c_n"+d.l,r=m.getContext("2d"),
+   
+  x=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+   
+  function(n){
+   
+  window.setTimeout(n,1e3/45)
+   
+  },
+   
+  w=Math.random,y={x:null,y:null,max:2e4};m.id=l,m.style.cssText="position:fixed;top:0;left:0;z-index:"+d.z+";opacity:"+d.o,e("body")[0].appendChild(m),o(),window.onresize=o,
+   
+  window.onmousemove=function(n){
+   
+  n=n||window.event,y.x=n.clientX,y.y=n.clientY
+   
+  },
+   
+  window.onmouseout=function(){
+   
+  y.x=null,y.y=null
+   
+  };
+   
+  for(var s=[],f=0;d.n>f;f++){
+   
+  var h=w()*a,g=w()*c,v=2*w()-1,p=2*w()-1;s.push({x:h,y:g,xa:v,ya:p,max:6e3})
+   
+  }
+   
+  u=s.concat([y]),
+   
+  setTimeout(function(){i()},100)
+   
+  }();
+   
+  </script><canvas id="c_n1" width="1365" height="975" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas><canvas id="c_n1" width="1920" height="919" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
+  
+
+
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body></html>
